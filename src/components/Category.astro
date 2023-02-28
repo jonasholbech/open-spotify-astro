@@ -1,0 +1,36 @@
+---
+import Playlist from "./Playlist.astro";
+const { imgs, title } = Astro.props;
+---
+
+<article>
+  <header>
+    <h2>{title}</h2>
+    <a href="#/seeall">See all</a>
+  </header>
+  <section class="albums">
+    {imgs.map((img) => <Playlist {img} />)}
+  </section>
+</article>
+
+<style>
+  article {
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  h2 {
+    margin: 0;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+  }
+  .albums {
+    display: flex;
+    max-width: calc(100vw - 250px);
+    overflow-x: hidden;
+    gap: 1rem;
+  }
+</style>
