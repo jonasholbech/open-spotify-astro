@@ -1,15 +1,32 @@
 ---
 import Playlist from "./Playlist.astro";
-const { imgs, title } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <article>
   <header>
     <h2>{title}</h2>
-    <a href="#/seeall">See all</a>
+    <a href="#/seeall">Show all</a>
   </header>
-  <section class="albums">
-    {imgs.map((img) => <Playlist {img} />)}
+  <section class="playlists">
+    <Playlist color="yellow" cover="0001.jpg" title="Peacefull Piano">
+      Relax and indulge with beautiful piano pieces
+    </Playlist>
+    <Playlist color="hotpink" cover="0002.jpg" title="Peacefull Piano">
+      Relax and indulge with beautiful piano pieces
+    </Playlist>
+    <Playlist color="#fff" cover="0003.jpg" title="Peacefull Piano">
+      Relax and indulge with beautiful piano pieces
+    </Playlist>
+    <Playlist color="royalblue" cover="0004.jpg" title="Peacefull Piano">
+      Relax and indulge with beautiful piano pieces
+    </Playlist>
+    <Playlist color="hsl(50 80% 100%)" cover="0005.jpg" title="Peacefull Piano">
+      Relax and indulge with beautiful piano pieces
+    </Playlist>
+    <Playlist color="hotpink" cover="0006.jpg" title="Peacefull Piano">
+      Relax and indulge with beautiful piano pieces
+    </Playlist>
   </section>
 </article>
 
@@ -27,7 +44,7 @@ const { imgs, title } = Astro.props;
     align-items: flex-end;
     margin-bottom: 1rem;
   }
-  .albums {
+  .playlists {
     display: flex;
     max-width: calc(100vw - 250px);
     overflow-x: hidden;

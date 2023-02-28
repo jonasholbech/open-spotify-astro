@@ -1,11 +1,13 @@
 ---
-const { img } = Astro.props;
+const { color, cover, title } = Astro.props;
+import Logo from "./icons/Logo.astro";
 import { Debug } from "astro/components";
 ---
 
 <article>
   <div class="imagewrapper">
-    <img src={`imgs/${String(img).padStart(4, "0")}.jpg`} alt="" />
+    <img src={`imgs/${cover}`} alt={title} />
+    <Logo color={color} />
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="46"
@@ -19,8 +21,8 @@ import { Debug } from "astro/components";
       ></path>
     </svg>
   </div>
-  <h3>100</h3>
-  <p>Velkommen til den nye DK rap playliste med dansk rap, der...</p>
+  <h3>{title}</h3>
+  <p><slot /></p>
 </article>
 
 <style>
@@ -31,7 +33,7 @@ import { Debug } from "astro/components";
     font-size: 0.7rem;
     transition: all 0.2s;
     cursor: pointer;
-    min-width: 200px;
+    min-width: 180px;
   }
   article,
   img {
@@ -40,22 +42,26 @@ import { Debug } from "astro/components";
   article:hover {
     background: var(--color-grey-50);
   }
-  svg {
+  .imagewrapper {
+    display: grid;
+  }
+  .imagewrapper > * {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .imagewrapper svg.bi-play-circle-fill {
+    transition: transform 0.1s, opacity 0.1s;
+    opacity: 0;
+    transform: translate(-10px, 10px);
+    align-self: end;
+    justify-self: end;
+  }
+  article:hover svg.bi-play-circle-fill {
+    opacity: 1;
+    transform: translate(-10px, -10px);
     fill: lime;
   }
-  .imagewrapper {
-    position: relative;
-  }
-  .imagewrapper svg {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    transition: transform 0.2s, opacity 0.3s;
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  article:hover svg {
-    opacity: 1;
-    transform: translateY(0px);
+  p {
+    line-height: 1.3rem;
   }
 </style>

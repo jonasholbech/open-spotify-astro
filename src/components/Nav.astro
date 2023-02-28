@@ -1,5 +1,13 @@
+---
+import Logo from "./icons/Logo.astro";
+---
+
 <div id="navwrapper">
   <nav>
+    <a class="logo" href="/">
+      <Logo size="40" />
+      <span>Spotify</span>
+    </a>
     <a class="active" href="index"
       ><svg
         xmlns="http://www.w3.org/2000/svg"
@@ -72,3 +80,16 @@
     >
   </nav>
 </div>
+
+<style>
+  .logo {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .logo span {
+    transform: translateY(4px);
+  }
+</style>
