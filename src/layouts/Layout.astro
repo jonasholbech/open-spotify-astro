@@ -1,6 +1,7 @@
 ---
 import "../main.css";
 import Nav from "../components/Nav.astro";
+import SignUpBar from "../components/SignUpBar.astro";
 
 const { title } = Astro.props;
 ---
@@ -19,5 +20,6 @@ const { title } = Astro.props;
       <Nav />
       <slot />
     </main>
+    <SignUpBar />
   </body>
 </html>

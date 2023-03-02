@@ -1,5 +1,6 @@
 ---
 import Logo from "./icons/Logo.astro";
+import Button from "./Button.astro";
 ---
 
 <div id="navwrapper">
@@ -8,7 +9,7 @@ import Logo from "./icons/Logo.astro";
       <Logo size="40" />
       <span>Spotify</span>
     </a>
-    <a class="active" href="index"
+    <a class="active" href="/"
       ><svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -79,6 +80,10 @@ import Logo from "./icons/Logo.astro";
       </svg>Liked Songs</a
     >
   </nav>
+  <div>
+    <p><a href="/">Cookies</a></p>
+    <Button bordered={true} variant="dark">🌐 English</Button>
+  </div>
 </div>
 
 <style>
@@ -91,5 +96,12 @@ import Logo from "./icons/Logo.astro";
   }
   .logo span {
     transform: translateY(4px);
+  }
+  div div {
+    margin-bottom: 100px;
+  }
+  p {
+    font-size: 0.6rem;
+    padding: 1rem;
   }
 </style>

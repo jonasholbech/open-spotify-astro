@@ -8,14 +8,17 @@ import TopNav from "../components/TopNav.astro";
   <div class="FrontPage">
     <TopNav />
     <div class="categorylist">
-      <Category title="Focus" />
-      <Category title="Spotify Playlists" />
+      <div class="inner">
+        <Category title="Focus" />
+        <Category title="Spotify Playlists" />
+      </div>
     </div>
   </div>
 </Layout>
 
 <style>
   .categorylist {
-    padding: 1rem;
+    margin: 2rem;
+    border-bottom: 1px solid var(--color-grey-100);
   }
 </style>
